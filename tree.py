@@ -17,10 +17,7 @@ def count_leaf_odd(a):
 			if not (a[2*x+1] and [2*x+2] )is None:
 				pass
 		except IndexError:
-			if a[x]==2:
-				count=count-1
-			else:
-				count=count+1	
+			count=count+1	
 							
 
 	return count		
