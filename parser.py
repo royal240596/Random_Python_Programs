@@ -1,5 +1,5 @@
 dicti={'E':'TB','B':'+TB','T':'FY','Y':'*FY','F':'id'}
-
+foE=['id','(','+']
 # print(dicti['F'][1])
 op=['+','-','/','*']
 
@@ -52,10 +52,13 @@ def first(x):
 		# print(len(some2))
 		i=0
 		a=[]
-		while not dicti[x][i].isupper() and(dicti[x][i].isalpha()):
-			
-			a.append(dicti[x][i])
-			i+=1
+		try:
+			while not dicti[x][i].isupper() and(dicti[x][i].isalpha()):
+				
+				a.append(dicti[x][i])
+				i+=1
+		except IndexError:
+			    pass			
 		return ''.join(a)	 			 	
 		
 	else:
@@ -74,6 +77,22 @@ for key,value in dicti.items():
 
 print(terminals)
 print(variable)
+
+for x in variable :#range(len(variable))
+	i=0
+	m=0
+	parse_table={}
+	# n=variable[x]
+	print(x)
+	for y in terminals:
+		if y in foE:
+			l={}
+			l[foE[m]]=1
+			# print(l)
+			parse_table[variable[i]]=l
+			m=m+1
+	i+=1		
+print(parse_table)		
 
 
 
