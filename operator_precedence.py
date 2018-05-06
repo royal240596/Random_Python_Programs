@@ -2,7 +2,7 @@ import sys
 import shlex
 import csv
 import pprint
-import numpy as np
+
 class Stack:
     def __init__(self):
         self.items = []
@@ -68,11 +68,13 @@ input_ind = list(shlex.shlex(input_string))
 
 input_ind.append('$')
 	
-order_table=[]	
-with open('order.csv', 'rU') as file2:
-		order = csv.reader(file2)
-		for row in order:
-			order_table.append(row)
+order_table=[['', '+', '-', '*', '/', 'i', '$'],
+ ['+', '>', '>', '<', '<', '<', '>'],
+ ['-', '>', '>', '<', '<', '<', '>'],
+ ['*', '>', '>', '>', '>', '<', '>'],
+ ['/', '>', '>', '>', '>', '<', '>'],
+ ['i', '>', '>', '>', '>', '', '>'],
+ ['$', '<', '<', '<', '<', '<', '']]
 pprint.pprint(order_table)	
 a='''E->E+E
 |E-E
